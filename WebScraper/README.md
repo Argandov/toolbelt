@@ -5,3 +5,7 @@ Simple and quick python script to scrape any blog, article, news, etc. website a
 Usage:
 
 `python3 web_scraper.py https://articleURL` 
+
+Used with: 
+
+[Newspaper3k](https://newspaper.readthedocs.io/en/latest/)
