@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "tokenizer"
+version = "0.1.0"
+description = "Simple tool for retrieving Token count from raw data for usage with OpenAI API"
+authors = ["Argandov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+tiktoken = "^0.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

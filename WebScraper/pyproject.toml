@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "article_scraper"
+version = "0.1.0"
+description = "Simple tool for extracting raw text from an article, blog, news, etc."
+authors = ["Argandov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+newspaper3k = "^0.2.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
