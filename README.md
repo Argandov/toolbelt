@@ -1,4 +1,4 @@
-# toolbelt
+# toolbelt (Monorepo)
 
 A collection of useful scripts for different purposes. The main idea of this scripts is to be used in conjunction with:
 
