@@ -1,4 +1,4 @@
-# YOUTUBE TRANSLATOR
+# YOUTUBE TRANSCRIPT
 
 Simple implementation of the youtube-transcript-api python package.
 
