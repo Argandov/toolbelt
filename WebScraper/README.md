@@ -6,6 +6,6 @@ Usage:
 
 `python3 web_scraper.py https://articleURL` 
 
-Used with: 
+Dependencies: 
 
-[Newspaper3k](https://newspaper.readthedocs.io/en/latest/)
+[Newspaper3k](https://newspaper.readthedocs.io/en/latest/) -> PIP Newspaper3k already "bundles" the necessary tools like NLTK, BS4, etc.
