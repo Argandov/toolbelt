@@ -15,7 +15,7 @@ argv@deb:~$ m
 
  - Give the file a name: hello world
 
-    (NEW FILE OPENS IN VIM)
+        (NEW FILE OPENS IN VIM)
 
 [i] File saved as /home/user/ObsidianFiles/2024-03-18_hello_world.md
 
