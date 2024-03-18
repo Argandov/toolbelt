@@ -78,7 +78,7 @@ def define_outfile_headers(raw_filename):
     # Concatenate this timestamp with your desired filename
     refined_text = raw_filename.lower().replace(" ", "_")
         # Convenience: eliminate any common symbol from the filename
-    symbols = "?¡¿',"
+    symbols = "!¡?¡¿',"
     for symbol in symbols:
         if symbol in refined_text:
             refined_text = refined_text.replace(symbol, '')

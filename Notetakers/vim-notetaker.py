@@ -2,6 +2,7 @@
 
 from datetime import datetime
 import subprocess
+import argparse
 import os
 import sys
 from config import FILEPATH
@@ -11,6 +12,19 @@ from config import FILEPATH
     FILEPATH: File path specified in config.py for this script to write newly created files in
 
 """
+
+def list_files_in_directory(FILEPATH):
+    print(f"[+] Listing files at: {FILEPATH}")
+    print("---"*30)
+    try:
+        # List all entries in the directory given by "directory_path"
+        entries = os.listdir(FILEPATH)
+        files = [entry for entry in entries if os.path.isfile(os.path.join(FILEPATH, entry))]
+        for file in files:
+            print(file)
+    except Exception as e:
+        print(f"[X] Error: {e}")
+        return []
 
 def vim(filepath, filename):
     if filepath.endswith("/"):
@@ -54,7 +68,7 @@ def refine_filename(raw_filename):
     # Concatenate this timestamp with your desired filename
     refined_text = raw_filename.lower().replace(" ", "_")
         # Convenience: eliminate any common symbol from the filename
-    symbols = "?¡¿',"
+    symbols = "?¡¿',¡!"
     for symbol in symbols:
         if symbol in refined_text:
             refined_text = refined_text.replace(symbol, '')
@@ -74,7 +88,14 @@ def init():
         sys.exit(1)
     return raw_filename
 
-raw_filename = init()
-final_filename, timestamp = refine_filename(raw_filename)
-full_filepath = vim(FILEPATH, final_filename)
-update_file_headers(final_filename, full_filepath, timestamp)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="List default directory files")
+    parser.add_argument("-l", "--list", nargs='?', const=True, default=None, help="List the default directory files")
+    args = parser.parse_args()
+    if args.list:
+        list_files_in_directory(FILEPATH)
+        sys.exit(0)
+    raw_filename = init()
+    final_filename, timestamp = refine_filename(raw_filename)
+    full_filepath = vim(FILEPATH, final_filename)
+    update_file_headers(final_filename, full_filepath, timestamp)
