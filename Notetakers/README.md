@@ -6,7 +6,7 @@ Scripts designed for quickly taking notes on the fly, and saving them as Markdow
 
 NOTE: Both scripts work independently from each other. I first created stdin-notetaker.py but soon I had the idea of the vim-notetaker.py and decided to just keep both just in case.
 
-How it looks:
+## How it looks:
 
 ```
 argv@deb:~$ alias m=python3 /path/to/vim-notetaker.py
