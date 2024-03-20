@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pdfExtract"
+version = "0.1.0"
+description = "quickly extract through cli text from pdfs"
+authors = ["Argandov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+PyMuPDF = "^1.23.26"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
