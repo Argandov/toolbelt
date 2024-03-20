@@ -17,9 +17,8 @@ def list_files_in_directory(FILEPATH):
     print(f"[+] Listing files at: {FILEPATH}")
     print("---"*30)
     try:
-        # List all entries in the directory given by "directory_path"
-        entries = os.listdir(FILEPATH)
-        files = [entry for entry in entries if os.path.isfile(os.path.join(FILEPATH, entry))]
+            # List all entries in the directory given by "directory_path"
+        files = sorted(os.listdir(FILEPATH), key=lambda x: os.path.getmtime(os.path.join(FILEPATH, x)))
         for file in files:
             print(file)
     except Exception as e:
