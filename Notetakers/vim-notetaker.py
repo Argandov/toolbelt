@@ -13,6 +13,24 @@ from config import FILEPATH
 
 """
 
+def display_files(FILEPATH):
+    file_list = os.listdir(FILEPATH)
+    print("Available files:")
+    for idx, filename in enumerate(file_list, start=1):
+        print(f"[ {idx} ] - {filename}")
+
+    while True:
+        try:
+            choice = int(input("Enter the number of the file you want to choose: "))
+            if 1 <= choice <= len(file_list):
+                chosen_file = file_list[choice - 1]
+                #filepath = os.path.join(FILEPATH, chosen_file)
+                return chosen_file
+            else:
+                print("Please enter a valid number.")
+        except ValueError:
+            print("Please enter a valid number.")
+
 def list_files_in_directory(FILEPATH):
     print(f"[+] Listing files at: {FILEPATH}")
     print("---"*30)
@@ -90,9 +108,15 @@ def init():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="List default directory files")
     parser.add_argument("-l", "--list", nargs='?', const=True, default=None, help="List the default directory files")
+    parser.add_argument("-e", "--edit", nargs='?', const=True, default=None, help="Edit selected files")
     args = parser.parse_args()
     if args.list:
         list_files_in_directory(FILEPATH)
+        sys.exit(0)
+    if args.edit:
+        file = display_files(FILEPATH)
+        print(f"Editing: {file}")
+        vim(FILEPATH, file)
         sys.exit(0)
     raw_filename = init()
     final_filename, timestamp = refine_filename(raw_filename)
